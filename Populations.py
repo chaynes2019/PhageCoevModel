@@ -1,3 +1,5 @@
+import numpy as np
+
 class hostPopulation():
     def __init__(self, hostPopNum, initPopLevel, fitnessParam):
         self.populationIndex = hostPopNum
@@ -18,6 +20,28 @@ class hostPopulation():
     def getTimer(self):
         return self.timerValue
 
+    def updateTimer(self, minTimerValue):
+        if ((minTimerValue == float('inf')) | (self.getTimer() == float('inf'))):
+            self.setTimer(float('inf'))
+        else:
+            self.setTimer(self.getTimer() - minTimerValue)
+
+    def regenerateTimer(self):
+        if (self.growthRate != 0):    
+            if (self.getTimer() == 0):
+                self.setTimer(np.random.exponential(1 / abs(self.growthRate)))
+            #This block underneath covers the case of a static population. What if
+            #circumstances change and it needs to start generating event times again?
+            elif (self.getTimer() == float('inf')):
+                self.setTimer(np.random.exponential(1 / abs(self.growthRate)))
+        else:
+            #Assigns static populations a time of positive infinity
+            self.setTimer(float('inf'))
+
+    def changePopulation(self, changeVal):
+        self.populationLevel += changeVal
+    
+    
     def reportPopInfo(self):
         print("\nInformation for Population {}".format(self.populationIndex))
         print("-----------------------------")
