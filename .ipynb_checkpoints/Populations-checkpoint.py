@@ -40,8 +40,7 @@ class hostPopulation():
 
     def changeHostPopulation(self, changeVal):
         self.populationLevel += changeVal
-        if (self.populationLevel < 0):
-            self.populationLevel = 0
+    
     
     def reportPopInfo(self):
         print("\nInformation for Population {}".format(self.populationIndex))
@@ -51,6 +50,3 @@ class hostPopulation():
         print("Would-be Exponential Growth Rate: {}".format(self.fitnessParameter * self.populationLevel))
         print("Logistic Growth Rate: {}".format(self.growthRate))
         print("Timer Value: {}".format(self.getTimer()))
-
-class phagePopulation():
-    def __init__(self)
