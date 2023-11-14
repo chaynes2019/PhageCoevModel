@@ -38,19 +38,17 @@ class hostPopulation():
             #Assigns static populations a time of positive infinity
             self.setTimer(float('inf'))
 
-    def changeHostPopulation(self, changeVal):
+    def changePopulation(self, changeVal):
         self.populationLevel += changeVal
         if (self.populationLevel < 0):
             self.populationLevel = 0
     
+    
     def reportPopInfo(self):
-        print("\nInformation for Population {}".format(self.populationIndex))
+        print("\nInformation for Host Population {}".format(self.populationIndex))
         print("-----------------------------")
         print("Population Level: {}".format(self.populationLevel))
         print("Fitness Parameter: {}".format(self.fitnessParameter))
         print("Would-be Exponential Growth Rate: {}".format(self.fitnessParameter * self.populationLevel))
         print("Logistic Growth Rate: {}".format(self.growthRate))
         print("Timer Value: {}".format(self.getTimer()))
-
-class phagePopulation():
-    def __init__(self)
