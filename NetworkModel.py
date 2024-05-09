@@ -85,15 +85,15 @@ class NetworkModel():
 
 #Test suite
 hostMutationMatrix = np.zeros((3, 3))
-hostMutationMatrix[0, 0] = 0.98
-hostMutationMatrix[0, 1] = 0.01
-hostMutationMatrix[0, 2] = 0.01
-hostMutationMatrix[1, 0] = 0.01
-hostMutationMatrix[1, 1] = 0.98
-hostMutationMatrix[1, 2] = 0.01
-hostMutationMatrix[2, 0] = 0.01
-hostMutationMatrix[2, 1] = 0.01
-hostMutationMatrix[2, 2] = 0.98
+hostMutationMatrix[0, 0] = 1
+hostMutationMatrix[0, 1] = 0
+hostMutationMatrix[0, 2] = 0
+hostMutationMatrix[1, 0] = 0
+hostMutationMatrix[1, 1] = 1
+hostMutationMatrix[1, 2] = 0
+hostMutationMatrix[2, 0] = 0
+hostMutationMatrix[2, 1] = 0
+hostMutationMatrix[2, 2] = 1
 
 phageHostInfectionMatrix = np.zeros((3, 3))
 phageHostInfectionMatrix[0, 0] = 1
@@ -107,15 +107,15 @@ phageHostInfectionMatrix[2, 1] = 0
 phageHostInfectionMatrix[2, 2] = 1
 
 phageMutationMatrix = np.zeros((3, 3))
-phageMutationMatrix[0, 0] = 0.998
-phageMutationMatrix[0, 1] = 0.001
-phageMutationMatrix[0, 2] = 0.001
-phageMutationMatrix[1, 0] = 0.001
-phageMutationMatrix[1, 1] = 0.998
-phageMutationMatrix[1, 2] = 0.001
-phageMutationMatrix[2, 0] = 0.001
-phageMutationMatrix[2, 1] = 0.001
-phageMutationMatrix[2, 2] = 0.998
+phageMutationMatrix[0, 0] = 1
+phageMutationMatrix[0, 1] = 0
+phageMutationMatrix[0, 2] = 0
+phageMutationMatrix[1, 0] = 0
+phageMutationMatrix[1, 1] = 1
+phageMutationMatrix[1, 2] = 0
+phageMutationMatrix[2, 0] = 0
+phageMutationMatrix[2, 1] = 0
+phageMutationMatrix[2, 2] = 1
 
 burstSize = 2
 lysisLength = 10
@@ -152,8 +152,9 @@ print(netTest.loadedTimeSeries)
 print("\nTesting displayIteration()\n")
 #netTest.displayIteration(10000)
 
-#netTest.displayInstanceTimecourses(0)
+netTest.displayInstanceTimecourses(0)
 
+'''
 fig, ax = plt.subplots()
 
 G = netTest.nxRepresentation[0]
@@ -177,3 +178,4 @@ ani = FuncAnimation(fig, displayUnobjectFrame, frames = numFrames, interval = ra
 #ani.save('CoevolutionwithUnidirectionalMutation.mp4', fps=30)
 
 plt.show()
+'''
